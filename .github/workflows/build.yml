@@ -1,0 +1,19 @@
+name: MyBuild
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  my_build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone-repo
+      - uses: actions/checkout@v1
+      
+      - name: build-formatterlib
+      - run: mkdir build 
+      - run: cd build
+      - run: cmake ..
+      - run: cmake --build .
+      
