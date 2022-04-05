@@ -12,7 +12,8 @@ jobs:
       - uses: actions/checkout@v1
       
       - name: build-formatterlib
-        run: mkdir build 
+        run: |
+             mkdir build 
              cd build
              cmake ..
              cmake --build .
