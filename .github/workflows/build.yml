@@ -15,8 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       
-      - name: set-compiler
-        run: sudo apt install clang-11 g++
+      - name: set-compiler-cmake
+        run: sudo apt install clang-11 g++ cmake
           
       - name: build-formatterlib
         run: | 
@@ -45,21 +45,3 @@ jobs:
          cmake . -DCMAKE_CXX_COMPILER=g++
          cmake --build .
          cd ..
-         
-  build-on-windows:
-    runs-on: windows-latest
-    
-    defaults:
-      run:
-        shell: powershell
-      
-    steps:
-      - uses: actions/checkout@v1
-      
-      - name: build-formatterlib
-        run: | 
-          cd formatter_lib
-          cmake . -G "MinGW Makefiles"
-          cmake --build .
-          cd ..
-      
