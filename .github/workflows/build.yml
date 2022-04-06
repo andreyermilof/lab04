@@ -15,15 +15,13 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: build
         
     steps:
       - uses: actions/checkout@v1
     
       - name: build-formatterlib
         run: | 
-          mkdir formatterlib 
-          cd formatterlib
-          cmake ../../formatter_lib -DCMAKE_CXX_COMPILER=&CLANG
+          cd formatter_lib 
+          cmake . -DCMAKE_CXX_COMPILER=&CLANG
           cmake --build .
-      
+          cd ..
