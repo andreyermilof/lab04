@@ -13,8 +13,9 @@ jobs:
       
       - name: build-formatterlib
         run: |
-             mkdir build 
-             cd build
-             cmake ..
-             cmake --build .
+          cd formatter_lib
+          mkdir build 
+          cd build
+          cmake ..
+          cmake --build .
       
