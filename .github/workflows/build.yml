@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v1
       
       - name: set-compiler
-        run: sudo apt install clang-11 
+        run: sudo apt install clang-11 g++
           
       - name: build-formatterlib
         run: | 
@@ -35,14 +35,14 @@ jobs:
       - name: build-solve
         run: |
           cd solver_app 
-          cmake . -DCMAKE_CXX_COMPILER=clang++
+          cmake . -DCMAKE_CXX_COMPILER=g++
           cmake --build .
           cd ..
           
       - name: build-hello
         run: |
-         cd solver_app 
-         cmake . -DCMAKE_CXX_COMPILER=clang++
+         cd hello_world_app 
+         cmake . -DCMAKE_CXX_COMPILER=g++
          cmake --build .
          cd ..
       
