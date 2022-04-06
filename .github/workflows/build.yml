@@ -18,10 +18,11 @@ jobs:
         
     steps:
       - uses: actions/checkout@v1
-      - uses: rlalik/setup-cpp-compiler@v1.0
-        with:
-          compiler: gcc-latest
-    
+      
+      - name: set-compiler
+        run: |
+          sudo apt install clang++
+          
       - name: build-formatterlib
         run: | 
           cd formatter_lib 
