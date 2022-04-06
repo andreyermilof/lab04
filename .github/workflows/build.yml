@@ -21,11 +21,11 @@ jobs:
       
       - name: set-compiler
         run: |
-          sudo apt install clang++
+          sudo apt install clang-11
           
       - name: build-formatterlib
         run: | 
           cd formatter_lib 
-          cmake . -DCMAKE_CXX_COMPILER=&CLANG
+          cmake . -DCMAKE_CXX_COMPILER=clang-11
           cmake --build .
           cd ..
