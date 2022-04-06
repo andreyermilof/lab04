@@ -1,9 +1,5 @@
 name: MyBuild
 
-env:
-  CLANG: clang++
-  GCC: g++
-
 on:
   push:
     branches:
@@ -26,6 +22,6 @@ jobs:
       - name: build-formatterlib
         run: | 
           cd formatter_lib 
-          cmake . -DCMAKE_CXX_COMPILER=clang-11
+          cmake . -DCMAKE_CXX_COMPILER=clang++
           cmake --build .
           cd ..
