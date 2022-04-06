@@ -5,7 +5,7 @@ on:
     branches:
       - master
 jobs:
-  my_build:
+  build-on-linux:
     runs-on: ubuntu-latest
     
     defaults:
@@ -16,8 +16,7 @@ jobs:
       - uses: actions/checkout@v1
       
       - name: set-compiler
-        run: |
-          sudo apt install clang-11
+        run: sudo apt install clang-11 
           
       - name: build-formatterlib
         run: | 
@@ -25,3 +24,25 @@ jobs:
           cmake . -DCMAKE_CXX_COMPILER=clang++
           cmake --build .
           cd ..
+
+      - name: build-formatterex 
+        run: |
+          cd formatter_ex 
+          cmake . -DCMAKE_CXX_COMPILER=clang++
+          cmake --build .
+          cd ..
+          
+      - name: build-solve
+        run: |
+          cd solver_app 
+          cmake . -DCMAKE_CXX_COMPILER=clang++
+          cmake --build .
+          cd ..
+          
+      - name: build-hello
+        run: |
+         cd solver_app 
+         cmake . -DCMAKE_CXX_COMPILER=clang++
+         cmake --build .
+         cd ..
+      
