@@ -1,5 +1,9 @@
 name: MyBuild
 
+env:
+  CLANG: clang++
+  GCC: g++
+
 on:
   push:
     branches:
@@ -7,14 +11,19 @@ on:
 jobs:
   my_build:
     runs-on: ubuntu-latest
-
+    
+    defaults:
+      run:
+        shell: bash
+        working-directory: build
+        
     steps:
       - uses: actions/checkout@v1
-
+    
       - name: build-formatterlib
-        run: |
-          mkdir build 
-          cd build
-          cmake ..
+        run: | 
+          mkdir formatterlib 
+          cd formatterlib
+          cmake ../../formatter_lib -DCMAKE_CXX_COMPILER=&CLANG
           cmake --build .
       
