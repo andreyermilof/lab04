@@ -59,7 +59,7 @@ jobs:
       - name: build-formatterlib
         run: | 
           cd formatter_lib
-          cmake . -G "Makefiles MinGW"
+          cmake . -G "MinGW Makefiles"
           cmake --build .
           cd ..
       
