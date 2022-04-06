@@ -18,6 +18,9 @@ jobs:
         
     steps:
       - uses: actions/checkout@v1
+      - uses: rlalik/setup-cpp-compiler@v1
+        with:
+          compiler: g++
     
       - name: build-formatterlib
         run: | 
